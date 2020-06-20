@@ -23,7 +23,7 @@
         <j-app-card
           :key="product.id"
           :title="product.title"
-          :icon="icon"
+          :icon="product.icon"
           :tags="product.tags"
           :price="product.price"
           :tooltip="product.tooltip"
@@ -34,8 +34,8 @@
         />
       </template>
 
-      <div class="flex justify-around pb-4 mx-12">
-        <div style="width: calc(50% - 4px); margin-right: 4px;">
+      <div class="flex flex-wrap justify-around pb-4 mx-12">
+        <div class="flex-1">
           <div class="font-bold">
             このアプリの情報
           </div>
@@ -43,32 +43,20 @@
             class="p-4 h-64 justify-between rounded-lg shadow-card border-gray-200"
           >
             <div class="my-4 flex justify-between">
-              <div>サポートサイト</div>
-              <div class="text-ellipsis">
-                <a href="https://yuukit.me/">
-                  https://yuukit.me/
-                </a>
-              </div>
-            </div>
-            <div class="my-4 flex justify-between">
-              <div>プライバシーポリシー</div>
-              <div class="text-ellipsis">
-                <a href="https://nekohack-privacy-policy.netlify.app/">
-                  https://nekohack-privacy-policy.netlify.app/
-                </a>
-              </div>
-            </div>
-            <div class="my-4 flex justify-between">
               <div>開発元</div>
               <div>nekohack</div>
             </div>
             <div class="my-4 flex justify-between">
               <div>公開日</div>
+              <div>2018/05/04</div>
+            </div>
+            <div class="my-4 flex justify-between">
+              <div>改訂日</div>
               <div>2020/04/02</div>
             </div>
           </div>
         </div>
-        <div style="width: calc(50% - 4px);">
+        <div class="flex-1">
           <div class="font-bold">
             ログイン
           </div>
@@ -172,7 +160,6 @@ export default defineComponent({
 
     return {
       products: products,
-      icon: require('../../static/bakeneko.png'),
       state,
       userStatus,
       report() {
@@ -203,12 +190,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.text-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 120px;
-}
-</style>
